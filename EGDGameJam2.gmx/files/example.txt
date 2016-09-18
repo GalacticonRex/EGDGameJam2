@@ -1,0 +1,21 @@
+Hello I am new to this game!
+What do I have to say?
+\LAB0 Hello
+\LAB1 Oops
+\LAB2 Moo
+
+:LAB0
+Oh wow this is cool.
+Hey!
+$goto LABEND
+
+:LAB1
+Moogoo.
+$goto LABEND
+
+:LAB2
+Moo who?
+$goto LABEND
+
+:LABEND
+Honestly no matter what I say it won't make sense.

@@ -1,0 +1,43 @@
+Hello I am new to this game!
+What do I want for lunch?
+\LAB0 Pizza
+\LAB1 Burrito
+\LAB2 Salad
+
+:LAB0
+The pizza was very good. However...
+You got heartburn.
+$goto LABEND
+
+:LAB1
+The burrito was very refreshing. However...
+You now have lots and lots of gas.
+$goto LABEND
+
+:LAB2
+The salad was... mediocre. However...
+Although your health is unchanged you feel as though you're drastically improving your lifestyle!
+$goto LABEND
+
+:LABEND
+Overall I think I made the right choice for lunch.
+
+What should I do now?
+\END0 Homework
+\END1 Video Games
+\\END2 Spend money at your local AllCorp Department Store
+
+:END0
+You had no time for video games. You are now stressed.
+$goto FINAL
+
+:END1
+Your homework didn't get done. You are now stressed.
+$goto FINAL
+
+:END2
+You are now poor.
+$goto FINAL
+
+:FINAL
+And that was the end of my day. Time for sleep...

@@ -6,47 +6,57 @@ var do_something = argument3;
 var retvalue = -1;
 
 if( string_length(global.narrator) != 0 ) {
-    draw_set_colour(c_white);
-    draw_set_alpha(0.5);
-    draw_rectangle(8, room_height-TEXT_WINDOW-(BLOCK_SIZE+MARGIN*3), room_width / 2, room_height-TEXT_WINDOW - 8, false);
+    var y1 = room_height-TEXT_WINDOW-(BLOCK_SIZE+MARGIN*2);
+    var y2 = room_height-TEXT_WINDOW - 8;
+    DrawTextbox(BORDER*3, y1, room_width / 2 - BORDER*3, y2, personBox);
     
-    draw_set_colour(c_black);
+    draw_set_colour(c_navy);
     draw_set_alpha(1);
     draw_set_font(NarratorFont);
-    draw_text(16, room_height-TEXT_WINDOW-(BLOCK_SIZE+MARGIN*3), global.narrator);
+    var h = string_height(global.narrator);
+    draw_text(BORDER*3 + MARGIN, (y1-h+y2)/2, global.narrator);
     draw_set_font(GameFont);
 }
 
 if ( count == 0 ) {
 
-    draw_set_colour(c_white);
-    draw_set_alpha(0.5);
-    draw_rectangle(8, room_height-TEXT_WINDOW, room_width-16, room_height-32, false);
+    var y1 = room_height-TEXT_WINDOW;
+    var y2 = room_height - 32;
+    DrawTextbox(BORDER, y1, room_width-BORDER, y2, textBox);
     
-    draw_set_colour(c_black);
+    draw_set_colour(c_navy);    
     draw_set_alpha(1);
-    draw_text_ext(8+MARGIN, room_height-TEXT_WINDOW+MARGIN, text, BLOCK_SIZE, room_width-16-MARGIN*2);
+    var h = max(string_height(text), TEXT_WINDOW/2);
+    draw_text_ext(32, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-16-MARGIN*2);
 
 } else {
     var phone_available = !is_undefined(global.option_phone);
     
-    draw_set_colour(c_white);
-    draw_set_alpha(0.5);
-    draw_rectangle(8, room_height-TEXT_WINDOW, room_width-8, room_height - OPTION_WINDOW - 8, false);
-    if( !is_undefined(global.option_phone) )
-        draw_rectangle(8, room_height-OPTION_WINDOW, room_width / 2 - 8, room_height - 32, false);
-    else
-        draw_rectangle(8, room_height-OPTION_WINDOW, room_width - 8, room_height - 32, false);
+    var y1 = room_height - TEXT_WINDOW;
+    var y2 = room_height - OPTION_WINDOW - 8;
     
-    draw_set_colour(c_black);
+    if( !is_undefined(global.option_phone) ) {
+        var spanx = room_width - sprite_get_width(phone_spr) - 32;
+        
+        DrawTextbox(BORDER, y1, spanx + 64, y2, textBox);
+        DrawTextbox(BORDER, room_height-OPTION_WINDOW, spanx + 64, room_height - 32, textBox);
+        
+        draw_sprite(phone_spr, 0, spanx, room_height - sprite_get_height(phone_spr));
+    } else {
+        DrawTextbox(BORDER, y1, room_width - BORDER, y2, textBox);
+        DrawTextbox(BORDER, room_height-OPTION_WINDOW, room_width - BORDER, room_height - 32, textBox);
+    }
+    
+    draw_set_colour(c_navy);
     draw_set_alpha(1);
-    draw_text_ext(8+MARGIN, room_height-TEXT_WINDOW+MARGIN, text, BLOCK_SIZE, room_width-16-MARGIN*2);
+    var h = string_height(text);
+    draw_text_ext(32, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-16-MARGIN*2);
     
     if ( phone_available ) {
         for (var i=0;i<count;i+=1)
             if( DrawSingleOption(data[i], i, MENTAL_OPTION_HALF, do_something) )
                 retvalue = i;
-        if( phone_available and DrawSingleOption(global.option_phone, 0, PHONE_OPTION, do_something) )
+        if( DrawPhone( do_something ) )
             retvalue = "Phone";
     } else {
         for (var i=0;i<count;i+=1)

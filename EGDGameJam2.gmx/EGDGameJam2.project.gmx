@@ -43,7 +43,18 @@
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprites name="UI">
+      <sprite>sprites\textBox</sprite>
+      <sprite>sprites\chat_bubble</sprite>
+      <sprite>sprites\personBox</sprite>
+      <sprite>sprites\chat_bubble_hightlight</sprite>
+      <sprite>sprites\phone_spr</sprite>
+    </sprites>
+    <sprites name="Portraits">
+      <sprite>sprites\Dillon</sprite>
+    </sprites>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -68,11 +79,14 @@
     </scripts>
     <scripts name="draw">
       <script>scripts\DrawMainMenu.gml</script>
+      <script>scripts\DrawPhone.gml</script>
       <script>scripts\DrawGameMenu.gml</script>
       <script>scripts\DrawSingleOption.gml</script>
       <script>scripts\DrawInterface.gml</script>
       <script>scripts\DrawButton.gml</script>
       <script>scripts\DrawOptions.gml</script>
+      <script>scripts\DrawTextbox.gml</script>
+      <script>scripts\DrawPortraits.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

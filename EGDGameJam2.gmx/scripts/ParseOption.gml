@@ -26,7 +26,7 @@ if( first == '\' ) {
     }
     global.script_index += 1;
 }
-else if ( first == ':' ) {
+else if ( first == ':' or first == '#') {
     global.script_index += 1;
     ret = ParseOption();
 }
@@ -37,21 +37,57 @@ else if ( first == '$' ) {
             global.script_index += 1;
             ret = ParseOption();
         }
-    } else if ( option == 'saying' ) {
+        else {
+            var results = string_parse(data);
+            if ( results[0] == 'show' ) {
+                var varname = results[1];
+                if ( string_length(varname) > 0 ) {
+                    var index = ds_map_find_value(global.portraits, varname);
+                    global.portrait_alpha[index] = 0;
+                }
+                else {
+                    var len = array_length_1d(global.portrait_alpha);
+                    for ( var i=0;i<len;i+=1 ) {
+                        global.portrait_alpha[i] = 0;
+                    }
+                }
+                global.script_index += 1;
+                ret = ParseOption();
+            }
+        }
+    }
+    else if ( option == 'saying' ) {
         global.narrator = data;
         global.script_index += 1;
         ret = ParseOption();
-    } else if( option == 'goto' ) {
+    }
+    else if( option == 'goto' ) {
         global.script_index = ds_map_find_value(global.script_labels, data);
         ret = ParseOption();
-    } else if ( option == 'set' ) {
+    }
+    else if ( option == 'set' ) {
         var results = string_parse(data);
         var varname = results[0];
         var vardata = results[1];
         ds_map_add(global.variables, varname, vardata);
         global.script_index += 1;
         ret = ParseOption();
-    } else if ( option == 'case' ) {
+    }
+    else if ( option == 'show' ) {
+        var results = string_parse(data);
+        var varname = results[0];
+        show_debug_message("SHOW " + varname);
+        if( string_length(varname) > 0 ) {
+            var vardata = real(results[1]);
+            var index = ds_map_find_value(global.portraits, varname);
+            global.portrait_alpha[index] = 1;
+            global.portrait_position[index] = vardata;
+            show_debug_message("SHOW @ " + string(vardata));
+        }
+        global.script_index += 1;
+        ret = ParseOption();
+    }
+    else if ( option == 'case' ) {
         show_debug_message("CASE "+data);
         var tokens = string_full_parse(data);
         if( !global.in_case_statement and InterpretStatement(tokens) ) {
@@ -74,17 +110,16 @@ else if ( first == '$' ) {
             if( option == "case" || option == "end" )
                 ret = ParseOption();
         }
-    } else if ( option == "end" ) {
+    }
+    else if ( option == "end" ) {
         global.in_case_statement = false;
         show_debug_message("END");
         global.script_index += 1;
         ret = ParseOption();
-    } else {
+    }
+    else {
         global.script_index += 1;
     }
-}
-else if ( first == '#' ) {
-    global.script_index += 1;
 }
 else {
     global.script_index += 1;

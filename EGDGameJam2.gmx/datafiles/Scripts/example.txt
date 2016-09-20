@@ -1,18 +1,21 @@
 Welcome to the game!
 
 $saying Character
+$show Dillon 0.9
 What do I want for lunch?
-	\LAB0 Pizza
+	\\LAB0 Pizza
 	\LAB1 Burrito
 	\LAB2 Salad
 
 :LAB0
+	$no show Dillon
 	$no saying
 	The pizza was very good. However...
 	You got heartburn.
 $goto LABEND
 
 :LAB1
+	$no show Dillon
 	$no saying
 	The burrito was very refreshing. However...
 	You now have lots and lots of gas.
@@ -20,6 +23,7 @@ $goto LABEND
 
 :LAB2
 	$set healthy True
+	$no show Dillon
 	$no saying
 	The salad was... mediocre. However...
 	Although your health is unchanged you feel as though you're drastically improving your lifestyle!
@@ -29,32 +33,37 @@ $goto LABEND
 	$saying Character
 	Overall I think I made the right choice for lunch.
 
+$show Dillon 0.2
 What should I do now?
 	\END0 Homework
 	\END1 Video Games
 	\\END2 Spend money at your local AllCorp Department Store
 
 :END0
+	$no show Dillon
 	$no saying
 	$set work_done True
 	You had no time for video games. You are now stressed.
 $goto FINAL
 
 :END1
+	$no show Dillon
 	$no saying
 	Your homework didn't get done. You are now stressed.
 $goto FINAL
 
 :END2
+	$no show Dillon
 	$no saying
 	You are now poor.
 $goto FINAL
 
 :FINAL
+	$show Dillon 0.5
 	$saying Character
 	And that was the end of my day. Time for sleep...
 	
-$case healthy=True&work_done=True
+$case healthy = True & work_done = True
 	I feel pretty good. I was productive today.
 	
 $case healthy = True
@@ -65,5 +74,6 @@ $case work_done = True
 	
 $end
 
+$no show Dillon
 $no saying
 You sleep in late the next day. You are late for school.

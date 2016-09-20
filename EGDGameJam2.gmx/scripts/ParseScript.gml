@@ -6,6 +6,14 @@ var file = file_text_open_read(script_url);
 global.in_case_statement = false;
 global.variables = ds_map_create();
 
+global.portraits = ds_map_create();
+ds_map_add( global.portraits, "Dillon", 0);
+
+global.portrait_sprite[0] = Dillon;
+global.portrait_position[0] = 0.5;
+global.portrait_alpha[0] = 0;
+global.portrait_real_alpha[0] = 0;
+
 global.narrator = "";
 global.script_labels = ds_map_create();
 global.script_index = 0;

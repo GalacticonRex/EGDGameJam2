@@ -78,6 +78,7 @@
   <fonts name="fonts">
     <font>fonts\GameFont</font>
     <font>fonts\NarratorFont</font>
+    <font>fonts\TitleFont</font>
   </fonts>
   <objects name="objects">
     <object>objects\GameInterface</object>

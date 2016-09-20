@@ -10,17 +10,17 @@ if( moused and (mouse_check_button(mb_left) or mouse_check_button_released(mb_le
     draw_set_colour(c_aqua);
     draw_roundrect(x1,y1,x2,y2,false);
     draw_set_colour(c_black);
-    draw_text(x1+8,y1+8,txt);
 } else if ( moused ) {
     draw_set_colour(c_gray);
     draw_roundrect(x1,y1,x2,y2,false);
     draw_set_colour(c_black);
-    draw_text(x1+8,y1+8,txt);
 } else {
     draw_set_colour(c_white);
     draw_roundrect(x1,y1,x2,y2,false);
     draw_set_colour(c_black);
-    draw_text(x1+8,y1+8,txt);
 }
+var spanx = string_width(txt);
+var spany = string_height(txt);
+draw_text((x2-spanx+x1)/2,(y2-spany+y1)/2,txt);
 
 return ( moused and mouse_check_button_released(mb_left) );

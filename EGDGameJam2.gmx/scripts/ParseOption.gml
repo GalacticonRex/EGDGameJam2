@@ -31,7 +31,17 @@ else if ( first == ':' ) {
     ret = ParseOption();
 }
 else if ( first == '$' ) {
-    if( option == 'goto' ) {
+    if( option == 'no' ) {
+        if ( data == 'saying' ) {
+            global.narrator = '';
+            global.script_index += 1;
+            ret = ParseOption();
+        }
+    } else if ( option == 'saying' ) {
+        global.narrator = data;
+        global.script_index += 1;
+        ret = ParseOption();
+    } else if( option == 'goto' ) {
         global.script_index = ds_map_find_value(global.script_labels, data);
         ret = ParseOption();
     } else if ( option == 'set' ) {
@@ -40,14 +50,14 @@ else if ( first == '$' ) {
         var vardata = results[1];
         ds_map_add(global.variables, varname, vardata);
         global.script_index += 1;
-        ParseOption();
+        ret = ParseOption();
     } else if ( option == 'case' ) {
         show_debug_message("CASE "+data);
         var tokens = string_full_parse(data);
         if( !global.in_case_statement and InterpretStatement(tokens) ) {
             global.in_case_statement = true;
             global.script_index += 1;
-            ParseOption();
+            ret = ParseOption();
         } else {
             var option = "";
             var data;
@@ -68,7 +78,7 @@ else if ( first == '$' ) {
         global.in_case_statement = false;
         show_debug_message("END");
         global.script_index += 1;
-        ParseOption();
+        ret = ParseOption();
     } else {
         global.script_index += 1;
     }

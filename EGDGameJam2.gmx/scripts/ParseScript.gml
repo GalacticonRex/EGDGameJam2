@@ -6,6 +6,7 @@ var file = file_text_open_read(script_url);
 global.in_case_statement = false;
 global.variables = ds_map_create();
 
+global.narrator = "";
 global.script_labels = ds_map_create();
 global.script_index = 0;
 global.option_phone = undefined;

@@ -2,8 +2,6 @@ var operation = argument0;
 var right = argument1;
 var left = argument2;
 
-show_debug_message("AND");
-
 if( operation == '&' )
     return Equals(right[0], Tail(right), 0) and Equals(left[0], Tail(left), 0);
 else if ( operation == '|' )

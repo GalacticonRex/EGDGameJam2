@@ -5,6 +5,18 @@ var do_something = argument3;
 
 var retvalue = -1;
 
+if( string_length(global.narrator) != 0 ) {
+    draw_set_colour(c_white);
+    draw_set_alpha(0.5);
+    draw_rectangle(8, room_height-TEXT_WINDOW-(BLOCK_SIZE+MARGIN*3), room_width / 2, room_height-TEXT_WINDOW - 8, false);
+    
+    draw_set_colour(c_black);
+    draw_set_alpha(1);
+    draw_set_font(NarratorFont);
+    draw_text(16, room_height-TEXT_WINDOW-(BLOCK_SIZE+MARGIN*3), global.narrator);
+    draw_set_font(GameFont);
+}
+
 if ( count == 0 ) {
 
     draw_set_colour(c_white);

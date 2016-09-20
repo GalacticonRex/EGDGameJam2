@@ -47,23 +47,17 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\DrawInterface.gml</script>
-    <script>scripts\DrawOptions.gml</script>
+    <script>scripts\InterpretStatement.gml</script>
     <script>scripts\ParseScript.gml</script>
     <script>scripts\GetOptions.gml</script>
     <script>scripts\ParseOption.gml</script>
     <script>scripts\ReadLine.gml</script>
-    <script>scripts\DrawMainMenu.gml</script>
-    <script>scripts\DrawButton.gml</script>
-    <script>scripts\DrawGameMenu.gml</script>
-    <script>scripts\DrawSingleOption.gml</script>
     <scripts name="string">
       <script>scripts\string_trim.gml</script>
       <script>scripts\string_parse.gml</script>
       <script>scripts\string_full_parse.gml</script>
       <script>scripts\string_char_special.gml</script>
     </scripts>
-    <script>scripts\InterpretStatement.gml</script>
     <scripts name="logic">
       <script>scripts\AndOr.gml</script>
       <script>scripts\Tail.gml</script>
@@ -72,9 +66,18 @@
       <script>scripts\Combine.gml</script>
       <script>scripts\Empty.gml</script>
     </scripts>
+    <scripts name="draw">
+      <script>scripts\DrawMainMenu.gml</script>
+      <script>scripts\DrawGameMenu.gml</script>
+      <script>scripts\DrawSingleOption.gml</script>
+      <script>scripts\DrawInterface.gml</script>
+      <script>scripts\DrawButton.gml</script>
+      <script>scripts\DrawOptions.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\GameFont</font>
+    <font>fonts\NarratorFont</font>
   </fonts>
   <objects name="objects">
     <object>objects\GameInterface</object>

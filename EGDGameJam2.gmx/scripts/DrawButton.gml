@@ -11,13 +11,16 @@ if( moused and (mouse_check_button(mb_left) or mouse_check_button_released(mb_le
     draw_roundrect(x1,y1,x2,y2,false);
     draw_set_colour(c_black);
     draw_text(x1+8,y1+8,txt);
+} else if ( moused ) {
+    draw_set_colour(c_gray);
+    draw_roundrect(x1,y1,x2,y2,false);
+    draw_set_colour(c_black);
+    draw_text(x1+8,y1+8,txt);
 } else {
     draw_set_colour(c_white);
     draw_roundrect(x1,y1,x2,y2,false);
     draw_set_colour(c_black);
     draw_text(x1+8,y1+8,txt);
 }
-
-show_debug_message("BUTTON "+txt);
 
 return ( moused and mouse_check_button_released(mb_left) );

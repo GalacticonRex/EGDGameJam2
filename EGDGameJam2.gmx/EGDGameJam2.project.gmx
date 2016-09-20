@@ -56,7 +56,26 @@
     <script>scripts\DrawMainMenu.gml</script>
     <script>scripts\DrawButton.gml</script>
     <script>scripts\DrawGameMenu.gml</script>
+    <script>scripts\DrawSingleOption.gml</script>
+    <scripts name="string">
+      <script>scripts\string_trim.gml</script>
+      <script>scripts\string_parse.gml</script>
+      <script>scripts\string_full_parse.gml</script>
+      <script>scripts\string_char_special.gml</script>
+    </scripts>
+    <script>scripts\InterpretStatement.gml</script>
+    <scripts name="logic">
+      <script>scripts\AndOr.gml</script>
+      <script>scripts\Tail.gml</script>
+      <script>scripts\Equals.gml</script>
+      <script>scripts\Resolve.gml</script>
+      <script>scripts\Combine.gml</script>
+      <script>scripts\Empty.gml</script>
+    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\GameFont</font>
+  </fonts>
   <objects name="objects">
     <object>objects\GameInterface</object>
     <object>objects\MenuInterface</object>

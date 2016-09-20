@@ -1,3 +1,5 @@
+draw_set_font(GameFont);
+
 if ( keyboard_check_pressed(vk_escape) ) {
     global.in_game_menu_alpha = 0;
     global.in_game_menu = !global.in_game_menu;

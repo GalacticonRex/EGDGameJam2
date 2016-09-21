@@ -529,14 +529,14 @@ I know, every single day, he's late with his stuff.
 
 :HATE_COWORKERS
 	$saying Dillan
-	Oh, yeah, um…they’re the worst.
+	Oh, yeah, um... they're the worst.
 
 	$saying Mackenzie
 	I know, right? Michael goes around pretending that he's so great when in reality we're the ones who actually get stuff done.
 
 	$saying Dillan
-	If he took half the time he spent showing off to actually do his work, he’d be halfway to being respected!
-	And another thing about those types. They think they have to micromanage everything! So busy watching others that they don’t have time to focus on their own problems.
+	If he took half the time he spent showing off to actually do his work, he'd be halfway to being respected!
+	And another thing about those types. They think they have to micromanage everything! So busy watching others that they don't have time to focus on their own problems.
 
 	$saying Helen
 	See? He gets it.
@@ -546,7 +546,7 @@ I know, every single day, he's late with his stuff.
 	$show Dillan 0.5
 
 	$no saying
-	This doesn’t feel right. But I’d feel weird if I just broke up the conversation by disagreeing.
+	This doesn't feel right. But I'd feel weird if I just broke up the conversation by disagreeing.
 $goto END_OF_SOCIALITE
 
 :CHECK_FACESPACE
@@ -583,7 +583,7 @@ $goto END_OF_SOCIALITE
 	It happens sometimes. But we just gotta grin and bear it.
 
 	$saying Mackenzie
-	You know, that’s a good point...
+	You know, that's a good point...
 $set Behind True
 
 :END_OF_SOCIALITE

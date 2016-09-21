@@ -69,7 +69,7 @@ if ( global.go_to_play ) {
     
 } else {
     
-    global.menu_target_text = "What can I accomplish with this device?";
+    global.menu_target_text = "A game about technology.";
     
     if( play == BUTTON_CLICKED ) {
         
@@ -77,11 +77,11 @@ if ( global.go_to_play ) {
         global.help_tag_time = 0;
         
         global.menu_target_text = global.monologue_play[global.monologue_index];
-        global.text_shift_speed = 10;
+        global.text_shift_speed = 15;
         global.go_to_play = true;
         
     } else if ( play == BUTTON_ABOUT_TO_CLICK or play == BUTTON_HOVER ) {   
-        global.menu_target_text = "Can I truly be happy? Or am I destined for a false happiness?"
+        global.menu_target_text = "Don't forget to take your daily selfie."
     }
     if ( quit == BUTTON_CLICKED ) {
         global.help_tag = "";
@@ -91,7 +91,7 @@ if ( global.go_to_play ) {
         global.text_shift_speed = 20;
         global.go_to_quit = true;
     } else if ( quit == BUTTON_ABOUT_TO_CLICK or quit == BUTTON_HOVER ) {
-        global.menu_target_text = "Perhaps it is hopeless after all..."
+        global.menu_target_text = "Alright well see you later I guess."
     }
 
 }

@@ -20,17 +20,17 @@ global.go_to_play = false;
 global.go_to_quit = false;
 
 global.menu_alpha = 1;
-global.text_shift_speed = 4;
+global.text_shift_speed = 10;
 
 global.monologue_index = 0;
 global.monologue_play[0] = "";
-global.monologue_play[1] = "Here goes nothing...";
-global.monologue_play[2] = "I hope that it works out...";
-global.monologue_play[3] = "But there are things here to help me...";
-global.monologue_play[4] = "I am terrified...";
-global.monologue_play[5] = "... but also hopeful ...";
-global.monologue_play[6] = "I will do it.";
-global.monologue_play[7] = "I will try.";
+global.monologue_play[1] = "How do we use technology...";
+global.monologue_play[2] = "... without letting it control our lives?";
+global.monologue_play[3] = "Dillan, an engineer living in a new town.";
+global.monologue_play[4] = "He wants to know the answer to this question too.";
+global.monologue_play[5] = "Is his phone good?";
+global.monologue_play[6] = "Bad?";
+global.monologue_play[7] = "Or neither?";
 global.monologue_play[8] = "";
 
 global.monologue_quit[0] = "";

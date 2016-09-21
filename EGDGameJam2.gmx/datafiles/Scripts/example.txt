@@ -4,17 +4,13 @@ $music Default
 $background Bedroom
 $no saying
 
-$saying Debug Assist
-Would you like to start from the beginning?
-\BEGINNING Yes.
-\\BLOG No.
-
 :BEGINNING
 $no saying
 
 Ding! My phone is beeping.
 
 $show Dillan 0.5
+$sound Beep
 $$phone AllCorp has scheduled a meet-up with people from your surrounding area. Drop by and say hi :)
 What do you do?
 	\FRIEND_POINTS I'll find my own way thanks.
@@ -50,6 +46,7 @@ I have no idea what that means.
 $saying Dillan
 I find that happens a lot.
 
+$sound Beep
 $$phone You have lost 15 Friend Points for being condescending.
 
 $saying Dillan
@@ -62,6 +59,7 @@ That wasn't my intent.
 $saying Laura
 Oh I didn't think that. Maybe I can tell it it was wrong.
 
+$sound Beep
 $$phone The official AllCorp Appeals process allows anyone to repeal a friendship judgement.
 
 $saying Dillan
@@ -106,8 +104,9 @@ $saying Dillan
 So, what do you do?
 
 $saying Laura
+$sound Beep
 [I just got a text?]
-$$phone Samuel: I'm just not sure if I followed the right path coming out here. What if everything just falls apart.]
+$$phone Samuel: I'm just not sure if I followed the right path coming out here. What if everything just falls apart.
 [It's Samuel. It seems like he's going through a really hard time]
 \ANSWER_Dillan Answer Dillan.
 \ANSWER_SAMUEL Answer Samuel.
@@ -124,6 +123,7 @@ $goto TEXTING_CONT
 	$saying Laura
 	One sec Dillan, I need to take this...
 	$$phone Laura: You chose to take that risk. You're out there now. Follow through.
+	$sound Beep
 	$$phone Samuel: I just kinda feel like my entire plan here is falling apart. What am I supposed to do now?
 	$set SamuelShould True
 $goto TEXTING_CONT
@@ -138,6 +138,7 @@ $case SamuelShould = True
 $end
 
 $saying Dillan
+$sound Beep	
 $phone Samuel: I'm just not sure if I followed the right path coming out here. What if everything just falls apart.]
 So uhh... Do you guys host parties a lot?
 \ANSWER_Dillan2 Answer Dillan.
@@ -152,9 +153,11 @@ $goto TEXTING_CONT2
 :ANSWER_SAMUEL2
 	$phone Laura: Because you have a lot riding on the success of your start-up. But that's fine. You're going to pull through.
 	So uhh... Do you guys host parties a lot?
+	$sound Beep
 	$$phone Samuel: I guess, and you're probably right, but I don't feel any better about this.
 	$$phone Laura: Maybe there's something I don't know, or maybe you're letting the stress get to you.
-	$$phone Laura: You can get better at that you know. Managing stress : )
+	$$phone Laura: You can get better at that you know. Managing stress :)
+	$sound Beep
 	$$phone Samual: Right.
 	$set SamuelFalling True
 $goto TEXTING_CONT2
@@ -175,6 +178,7 @@ $case SamuelFalling = True & SamuelShould = True
 $end
 
 $saying Dillan
+$sound Beep
 $phone Samuel: You work in a newspaper. That industry is practically dying....
 It must be a lot of work setting up and all...
 
@@ -188,6 +192,7 @@ $case SamuelFalling = True
 $end
 
 $saying Dillan
+$sound Beep
 $phone Samuel: ... how do you deal with the stress?
 ... do you want some help?
 \ANSWER_Dillan3 Answer Dillan
@@ -209,9 +214,11 @@ $goto END_OF_TEXTING
 	$$phone Laura: I find responsibility helps too.
 	$$phone Laura: If I freak out everytime my newsroom does something bad or there's doubt about the future, 
 	$$phone Laura: so will my employees.
+	$sound Beep
 	$$phone Samuel: What about the things you can't control?
 	$$phone Laura: What about them? If I can't control them, then I can prepare for them.
 	$$phone Laura: And if I can't do that, they're not worth the worry.
+	$sound Beep
 	$$phone Samuel: What if you can prepare for them but just don't?
 	$$phone Laura: Then you should change your mind and prepare for them, or learn to be content with the alternative.
 	$set SamuelDeal True
@@ -220,6 +227,7 @@ $goto END_OF_TEXTING
 
 $case DillanParties = True & DillanHelp = True
 	$saying Laura
+	$sound Beep
 	$phone Samuel: [Offline]
 	[Dang it. Samuel went off line, I better go actually talk to him.]
 	I'm really sorry Dillan, I have to go make a call.
@@ -270,8 +278,7 @@ Take a look.
 $no saying
 I decide to check out his profile...
 $$phone Royce Norton: Local Artisan
-$$phone Enjoys: Quiet Poetry
-$$phone Personality: Outdoorsy Meditative
+$$phone Quiet Poetry, Outdoorsy Meditative, Code Artisan (Ruby on Rails)
 
 $saying Dillan
 It looks like you like the... outdoors?
@@ -281,7 +288,7 @@ $set RoyceProfile True
 $saying Royce
 Yep. I like to go on hikes all the time.
 \ASK_ABOUT_HIKING What are good hiking trails around here?
-\\ASK_ABOUT_CODE Occupation: Code Artisan (Ruby on Rails)
+\\ASK_ABOUT_CODE Code Artisan (Ruby on Rails)
 
 :ASK_ABOUT_HIKING
 	$saying Royce
@@ -600,7 +607,7 @@ $end
 $case Behind = True
 	When Mackenzie and Helen started ranting about their co-workers, it turned out that there was some truth to the matter. And I used that to play somewhat of a mediating role. 
 $case True = True
-	I made good friends with Mackenzie and Hellen by trash-talking my co-workers with them in confidence. This a common thing for all of us to do right. Get some heat off your chest by ranting among friends. Still, I wonder if this kind of thing is actually productive. Do I lose something by talking poorly of my associates when they aren't around?
+	I made good friends with Mackenzie and Helen by trash-talking my co-workers with them in confidence. This a common thing for all of us to do right. Get some heat off your chest by ranting among friends. Still, I wonder if this kind of thing is actually productive. Do I lose something by talking poorly of my associates when they aren't around?
 $end
 
 :END_OF_GAME

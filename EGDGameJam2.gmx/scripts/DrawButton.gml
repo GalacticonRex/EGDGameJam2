@@ -26,6 +26,7 @@ draw_text((x2-spanx+x1)/2,(y2-spany+y1)/2,txt);
 
 if ( moused ) {
     if ( active and mouse_check_button_released(mb_left) ) {
+        audio_play_sound(Click,3,false);
         return BUTTON_CLICKED;
     } else if ( active and mouse_check_button(mb_left) ) {
         return BUTTON_ABOUT_TO_CLICK;

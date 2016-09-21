@@ -21,8 +21,10 @@ var ey = sy + (BLOCK_SIZE+OPTION_SPACE*2);
 
 draw_set_colour(c_black);
 if( active and mouse_x >= sx and mouse_x < ex and mouse_y-OPTION_SPACE >= sy and mouse_y-OPTION_SPACE < ey ) {
-    if( mouse_check_button_released(mb_left) )
+    if( mouse_check_button_released(mb_left) ) {
+        audio_play_sound(Click,3,false);
         retvalue = true;
+    }
     if( mouse_check_button(mb_left) )
         draw_set_colour(c_black);
     else

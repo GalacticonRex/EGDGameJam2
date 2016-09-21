@@ -131,12 +131,19 @@ else if ( first == '$' ) {
         global.script_index += 1;
         if( !pause ) ret = ParseOption();
     }
+    else if ( option == 'sound' ) {
+        var index = ds_map_find_value(global.sounds, data);
+        var music = global.sound_src[index];
+        audio_play_sound(music, 1, false);
+        global.script_index += 1;
+        if( !pause ) ret = ParseOption();
+    }
     else if ( option == 'music' ) {
         var results = string_parse(data);
         var varname = results[0];
         show_debug_message("MUSIC " + varname);
         if( string_length(varname) > 0 ) {
-            var index = ds_map_find_value(global.backgrounds, varname);
+            var index = ds_map_find_value(global.music, varname);
             var music = global.music_src[index];
             if( global.current_music != -1 ) {
                 audio_sound_gain(global.current_music, 0, 6000);

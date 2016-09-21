@@ -1,3 +1,4 @@
+$music Default
 Welcome to the game!
 
 $background Bedroom

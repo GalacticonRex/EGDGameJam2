@@ -38,7 +38,7 @@ else if ( first == '$' ) {
             ret = ParseOption();
         }
         else if ( data == 'music' ) {
-            audio_stop_sound(global.current_music);
+            audio_sound_gain(global.current_music, 0, 6000);
         }
         else {
             var results = string_parse(data);
@@ -113,8 +113,12 @@ else if ( first == '$' ) {
         if( string_length(varname) > 0 ) {
             var index = ds_map_find_value(global.backgrounds, varname);
             var music = global.music_src[index];
-            audio_play_sound(music, 1, true);
-            global.current_music = music;
+            if( global.current_music != -1 ) {
+                audio_sound_gain(global.current_music, 0, 6000);
+            }
+            global.current_music = audio_play_sound(music, 1, true);
+            audio_sound_gain(global.current_music, 0, 0);
+            audio_sound_gain(global.current_music, 0.5, 6000);
         }
         global.script_index += 1;
         ret = ParseOption();

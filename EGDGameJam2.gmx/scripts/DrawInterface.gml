@@ -32,6 +32,7 @@ if( !global.return_to_main_menu ) {
         if( keyboard_check_pressed(vk_space) ) {
             global.help_tag_time = 0;
             if( !ParseOption() ) {
+                audio_sound_gain(global.current_music, 0, 6000);
                 global.return_to_main_menu = true;
                 return 0;
             }

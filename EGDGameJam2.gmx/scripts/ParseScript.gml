@@ -4,7 +4,7 @@ global.return_to_main_menu = false;
 
 global.in_game_menu = false;
 
-var script_url = working_directory+"\Scripts\example.txt";
+var script_url = working_directory+"\Scripts\script.txt";
 var file = file_text_open_read(script_url);
 
 global.game_alpha = 0;

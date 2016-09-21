@@ -1,5 +1,6 @@
 Welcome to the game!
 
+$background Bedroom
 $saying Dillon
 $show Dillon 0.9
 What do I want for lunch?
@@ -30,6 +31,7 @@ $goto LABEND
 $goto LABEND
 
 :LABEND
+	$background LivingRoom
 	$saying Dillon
 	Overall I think I made the right choice for lunch.
 
@@ -59,7 +61,12 @@ $goto FINAL
 $goto FINAL
 
 :FINAL
+	$background Cafe
 	$show Dillon 0.5
+	$show Cliff 0.0
+	$show Helen 0.7
+	$show Ricky 0.3
+	$show Laura 1.0
 	$saying Dillon
 	And that was the end of my day. Time for sleep...
 	
@@ -74,6 +81,6 @@ $case work_done = True
 	
 $end
 
-$no show Dillon
+$no show
 $no saying
 You sleep in late the next day. You are late for school.

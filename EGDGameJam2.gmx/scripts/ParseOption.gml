@@ -37,6 +37,9 @@ else if ( first == '$' ) {
             global.script_index += 1;
             ret = ParseOption();
         }
+        else if ( data == 'music' ) {
+            audio_stop_sound(global.current_music);
+        }
         else {
             var results = string_parse(data);
             if ( results[0] == 'show' ) {
@@ -51,6 +54,11 @@ else if ( first == '$' ) {
                         global.portrait_alpha[i] = 0;
                     }
                 }
+                global.script_index += 1;
+                ret = ParseOption();
+            }
+            else if ( results[0] == 'background' ) {
+                SetBackgroundAlpha(-1);
                 global.script_index += 1;
                 ret = ParseOption();
             }
@@ -83,6 +91,30 @@ else if ( first == '$' ) {
             global.portrait_alpha[index] = 1;
             global.portrait_position[index] = vardata;
             show_debug_message("SHOW @ " + string(vardata));
+        }
+        global.script_index += 1;
+        ret = ParseOption();
+    }
+    else if ( option == 'background' ) {
+        var results = string_parse(data);
+        var varname = results[0];
+        show_debug_message("BACKGROUND " + varname);
+        if( string_length(varname) > 0 ) {
+            var index = ds_map_find_value(global.backgrounds, varname);
+            SetBackgroundAlpha(index)
+        }
+        global.script_index += 1;
+        ret = ParseOption();
+    }
+    else if ( option == 'music' ) {
+        var results = string_parse(data);
+        var varname = results[0];
+        show_debug_message("MUSIC " + varname);
+        if( string_length(varname) > 0 ) {
+            var index = ds_map_find_value(global.backgrounds, varname);
+            var music = global.music_src[index];
+            audio_play_sound(music, 1, true);
+            global.current_music = music;
         }
         global.script_index += 1;
         ret = ParseOption();

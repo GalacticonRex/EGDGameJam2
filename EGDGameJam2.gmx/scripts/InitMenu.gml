@@ -1,5 +1,7 @@
 global.help_tag = "";
 global.help_tag_alpha = 0;
+global.help_tag_alpha_multiplier = 0;
+global.help_tag_time = 0;
 
 global.menu_target_text = "";
 global.menu_target_alpha = 0;
@@ -32,8 +34,5 @@ global.monologue_play[7] = "I will try.";
 global.monologue_play[8] = "";
 
 global.monologue_quit[0] = "";
-global.monologue_quit[1] = "This is not my day...";
-global.monologue_quit[2] = "Maybe some other time...";
-global.monologue_quit[3] = "Or maybe not...";
-global.monologue_quit[4] = "So long...";
-global.monologue_quit[5] = "";
+global.monologue_quit[1] = "So long...";
+global.monologue_quit[2] = "";

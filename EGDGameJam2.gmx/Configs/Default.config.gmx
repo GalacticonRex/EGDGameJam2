@@ -638,7 +638,7 @@
       <constant name="MENTAL_OPTION">0</constant>
       <constant name="MENTAL_OPTION_HALF">1</constant>
       <constant name="PHONE_OPTION">2</constant>
-      <constant name="BORDER">16</constant>
+      <constant name="BORDER">48</constant>
       <constant name="MARGIN">16</constant>
       <constant name="OPTION_SPACE">8</constant>
       <constant name="TEXT_WINDOW">240</constant>

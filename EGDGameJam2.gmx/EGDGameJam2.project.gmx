@@ -61,7 +61,11 @@
     </datafiles>
   </datafiles>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="Music">
+      <sound>sound\Default</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="UI">
       <sprite>sprites\textBox</sprite>
@@ -72,6 +76,15 @@
     </sprites>
     <sprites name="Portraits">
       <sprite>sprites\Dillon</sprite>
+      <sprite>sprites\Laura</sprite>
+      <sprite>sprites\Cliff</sprite>
+      <sprite>sprites\Helen</sprite>
+      <sprite>sprites\Ricky</sprite>
+    </sprites>
+    <sprites name="Background">
+      <sprite>sprites\Cafe</sprite>
+      <sprite>sprites\Bedroom</sprite>
+      <sprite>sprites\LivingRoom</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -106,10 +119,15 @@
       <script>scripts\DrawOptions.gml</script>
       <script>scripts\DrawTextbox.gml</script>
       <script>scripts\DrawPortraits.gml</script>
+      <script>scripts\DrawBackgrounds.gml</script>
     </scripts>
     <script>scripts\LoadResources.gml</script>
     <script>scripts\InitMenu.gml</script>
     <script>scripts\DrawTagHelp.gml</script>
+    <script>scripts\CreatePortraits.gml</script>
+    <script>scripts\SetBackgroundAlpha.gml</script>
+    <script>scripts\CreateBackgrounds.gml</script>
+    <script>scripts\CreateMusic.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\GameFont</font>

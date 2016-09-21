@@ -26,8 +26,11 @@ var quit = DrawButton(room_width/4,room_height/2,3*room_width/4, room_height/2 +
 
 if ( global.go_to_play ) {
 
-    if( keyboard_check_pressed(vk_space) )
+    if( keyboard_check_pressed(vk_space) ) {
+        global.help_tag_time = 0;
         room_goto_next();
+        return 0;
+    }
 
     if ( global.trigger ) {
         global.menu_offset[1-global.menu_selected] += 25 * global.monologue_index;
@@ -35,6 +38,7 @@ if ( global.go_to_play ) {
         if( global.monologue_index+1 == array_length_1d(global.monologue_play) ) {
             global.text_shift_speed = 20;
         } else if( global.monologue_index == array_length_1d(global.monologue_play) ) {
+            global.help_tag_time = 0;
             room_goto_next();
             return 0;
         }
@@ -70,7 +74,7 @@ if ( global.go_to_play ) {
     if( play == BUTTON_CLICKED ) {
         
         global.help_tag = "Press [SPACEBAR] to skip";
-        global.help_tag_alpha = 0;
+        global.help_tag_time = 0;
         
         global.menu_target_text = global.monologue_play[global.monologue_index];
         global.text_shift_speed = 10;
@@ -81,7 +85,7 @@ if ( global.go_to_play ) {
     }
     if ( quit == BUTTON_CLICKED ) {
         global.help_tag = "Press [SPACEBAR] to skip";
-        global.help_tag_alpha = 0;
+        global.help_tag_time = 0;
         
         global.menu_target_text = global.monologue_quit[global.monologue_index];
         global.text_shift_speed = 10;

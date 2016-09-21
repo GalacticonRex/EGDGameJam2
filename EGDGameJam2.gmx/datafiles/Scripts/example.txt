@@ -203,8 +203,8 @@ $goto END_OF_TEXTING
 
 :ANSWER_SAMUEL3
 	$phone Laura: If you're observant enough you'll see everyone you know act life their life is falling apart.
-	$$phone Laura: Sometimes it's justified.
 	... do you want some help?
+	$$phone Laura: Sometimes it's justified.
 	$$phone Laura: And sometimes it isn't. Keeping yourself in good spirits is helped by having an accurate picture of the world.
 	$$phone Laura: I find responsibility helps too.
 	$$phone Laura: If I freak out everytime my newsroom does something bad or there's doubt about the future, 
@@ -366,6 +366,157 @@ $end
 $goto END_OF_GAME
 
 :SOCIALITE
+$no saying
+$no phone
+$no show Dillon
+$background Cafe
+
+Going to a meetup seems like a reasonable thing to do. It's a big city, but you can get trapped in this cycle of staying home all the time and talking to no one if you don't reach out every so often.
+You head over to the AllCorp FaceSpace Meetup. It's being held in a nice coffee shop a few minutes away.
+$show Dillon 0.5
+A lot of people are here, this is cool.
+	\OBSERVE_CROWD Take a moment and observe the crowd.
+	\TALK_TO_SOMEONE Seek out someone to talk to.
+	
+:OBSERVE_CROWD
+	There are definitely some people here who know each other already. Of course, that's not a problem. It's not like friendliness is a precious resource.
+	After a couple minutes standing by observing the crowd, a guy in a polo and khaki shorts starts walking in your direction.
+	$show Dillon 0.8
+	$show Cliff 0.4
+	$saying Cliff
+	Hi, I don't know you. Come talk to some people.
+	$no saying
+	$show Dillon 0.2
+	$show Cliff 0.6
+	I follow him to a small group who are chatting amongst themselves.
+	$saying Cliff
+	Are you new?
+$goto MEET_CLIFF
+:TALK_TO_SOMEONE
+	It doesn't take to long to find someone who looks amenable to talk to. A man in a polo and khaki shorts is with a group of a few more people. You make your way over there.
+	$show Dillon 0.2
+	$show Cliff 0.6
+	$saying Cliff
+	Hi, I don't recognize you. Is this your first time at one of the local meetups?
+
+:MEET_CLIFF
+$saying Dillan
+Yeah, I just moved into town. Who are you?
+$saying Cliff
+I'm Cliff, I organize a lot of these get-togethers. It gives me something to do.
+$saying Dillan
+That's cool, who are these people?
+
+$no saying
+$show Dillon -0.5
+$show Cliff -0.5
+You meet the rest of the group in the middle of a joke.
+
+$show Dillon 0.1
+$show Cliff 0.3
+$show Mackenzie 0.8
+$saying Mackenzie
+... then the owner of the shop starts frantically searching around, as if he's lost something.
+The customers are bewildered, what's going on? Where is the clown? Why did the lights turn off?
+$no saying
+Everybody hangs on their seat for the punchline.
+$saying Mackenzie
+Then the owner pops up and says "NO SOAP... RADIO."
+$no saying
+The entire group, including Cliff, break into hysterical laughter. You're pretty sure that punchline doesn't make any sense. You definitely don't get the joke.
+$$phone AllCorp: The No Soap-Radio Joke rose to prominence as an anti-joke parody.
+$$phone Some have compared it to the earlier joke...
+...
+\FAKE_UNDERSTANDING Fake understanding the joke.
+\DONT_GET_IT "I don't get it."
+
+:FAKE_UNDERSTANDING
+	$no phone
+	$saying Dillan
+	OH.
+	
+	$show Dillon 0.3
+	$show Cliff 0.7
+	$show Mackenzie 0.9
+
+	$no saying
+	You fake laughter, but the group doesn't buy it. They all look at you in unison silence.
+	And then they begin to laugh at you. Ok, now you really don't get it.
+
+	$saying Mackenzie
+	You don't get it.
+
+	$saying Dillan
+	No I get it, it's an anti-joke following in a long line of anti-jokes.
+
+	$saying Mackenzie
+	No, um not quite.
+
+	$saying Dillan
+	No really, I get it.
+$goto BEHIND_BACK
+
+:DONT_GET_IT
+	$no saying
+	$no phone
+	The group starts laughing again, but it dies down faster this time.
+	
+	$show Dillon 0.3
+	$show Cliff 0.7
+	$show Mackenzie 0.9
+
+	$saying Cliff
+	Of course you don't. That was kind of mean on our part.
+	No Soap Radio is a joke about... Mackenzie why don't you explain?
+
+	$saying Mackenzie
+	The joke is completely fake. It doesn't make sense.
+	What you do is tell a nonsense joke, and tell your friends the punchline in advance. That way they know when to laugh.
+	Then you tell the joke to an unsuspecting stranger, who doesn't know that you've done this. You all laugh to convince the person that it's funny.
+	We're mean. Is what I'm saying. We faked this to see if we could get a random person to laugh out of peer pressure.
+
+	$saying Dillan
+	That is terrible.
+
+	$no saying
+	You have trouble keeping a smile off your face, this was actually a pretty funny trick.
+
+	$saying Dillan
+	Okay, that was pretty funny.
+
+	$saying Mackenzie
+	So you're not mad?
+
+	$saying Dillan
+	No it's cool.
+
+	$set NoSoap True
+
+:BEHIND_BACK
+$no saying
+$no show Cliff
+$show Helen 0.5
+$show Mackenzie 0.8
+$show Dillon 0.2
+Cliff walks away to talk to another few people. Mackenzie and Helen wave him away.
+
+$saying Mackenzie
+Anyway, Michael refuses to acknowledge that we need to change our strategy.
+He thinks that everything will be just fine if we just hang in there.
+Oh, Dillan, I work at a start-up. Michael and I are some of the co-founders.
+
+$saying Dillan
+And Michael isn't here?
+
+$saying Mackenzie
+No, he's off doing... I don't know what he does in his free time.
+Anyway, he acts like these financial issues will go away when money falls out of the sky.
+
+$saying Helen
+I have to be honest, he doesn't contribute much.
+
+$saying Mackenzie
+I know, every single day, he's late with his stuff.
 
 :END_OF_GAME
 

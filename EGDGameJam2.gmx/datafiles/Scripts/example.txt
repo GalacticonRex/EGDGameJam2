@@ -14,26 +14,26 @@ $no saying
 
 Ding! My phone is beeping.
 
-$show Dillon 0.5
+$show Dillan 0.5
 $$phone AllCorp has scheduled a meet-up with people from your surrounding area. Drop by and say hi :)
 What do you do?
 	\FRIEND_POINTS I'll find my own way thanks.
 	\\SOCIALITE Go meet up!
 	
 :FRIEND_POINTS
-$no show Dillon
+$no show Dillan
 $background LivingRoom
 I go over to Ricky and Laura's house, where they are apparently hosting a party in the neighborhood.
 Walking in, there's a bunch of people here. That's cool. Ricky introduces me to his wife, Laura.
 
 $show Laura 0.9
 $show Ricky 0.6
-$show Dillon 0.2
+$show Dillan 0.2
 
 $saying Laura
-So what do you do, Dillon?
+So what do you do, Dillan?
 
-$saying Dillon
+$saying Dillan
 What should I say?
 	\FRIEND_POINTS_CONT I calibrate encabulators in support of other energy generation occupations.
 	\FRIEND_POINTS_CONT I'm an engineer in integral risk assessment.
@@ -42,17 +42,17 @@ What should I say?
 
 $no show Ricky
 $show Laura 0.7
-$show Dillon 0.3
+$show Dillan 0.3
 
 $saying Laura
 I have no idea what that means.
 
-$saying Dillon
+$saying Dillan
 I find that happens a lot.
 
 $$phone You have lost 15 Friend Points for being condescending.
 
-$saying Dillon
+$saying Dillan
 That wasn't my intent.
 	\\FRIEND_POINTS_CONT2 Attempt to appeal.
 	\TEXTING Say nothing.
@@ -64,7 +64,7 @@ Oh I didn't think that. Maybe I can tell it it was wrong.
 
 $$phone The official AllCorp Appeals process allows anyone to repeal a friendship judgement.
 
-$saying Dillon
+$saying Dillan
 Cool, let's repeal this stupid thing.
 In order to repeal the judgement, hit this button to send an repeal request.
 
@@ -73,26 +73,26 @@ $$no phone
 $no saying
 I hit the button.
 
-$saying Dillon
+$saying Dillan
 Please have the other subject print out the form and send it to AllCorp Headquarters.
 You must be kidding me.
 
 $saying Laura
 That's ridiculous, but I'll do it.
 
-$saying Dillon
+$saying Dillan
 Don't bother, it's not worth the effort.
 
 $saying Laura
 Well, anyway, I won't hold it against you.
 
-$saying Dillon
+$saying Dillan
 Well, thank you.
 
 $set AppealFlag True
 
 :TEXTING
-$no show Dillon
+$no show Dillan
 $no show Ricky
 $no show Laura
 $no saying
@@ -100,19 +100,19 @@ $no saying
 Outside of Ricky's house...
 
 $show Laura 0.7
-$show Dillon 0.3
+$show Dillan 0.3
 
-$saying Dillon
+$saying Dillan
 So, what do you do?
 
 $saying Laura
 [I just got a text?]
 $$phone Samuel: I'm just not sure if I followed the right path coming out here. What if everything just falls apart.]
 [It's Samuel. It seems like he's going through a really hard time]
-\ANSWER_DILLON Answer Dillon.
+\ANSWER_Dillan Answer Dillan.
 \ANSWER_SAMUEL Answer Samuel.
 
-:ANSWER_DILLON
+:ANSWER_Dillan
 	$saying Laura
 	[Whatever it is it'll have to wait.]
 	$no phone
@@ -140,10 +140,10 @@ $end
 $saying Dillan
 $phone Samuel: I'm just not sure if I followed the right path coming out here. What if everything just falls apart.]
 So uhh... Do you guys host parties a lot?
-\ANSWER_DILLON2 Answer Dillon.
+\ANSWER_Dillan2 Answer Dillan.
 \ANSWER_SAMUEL2 Answer Samuel.
 
-:ANSWER_DILLON2
+:ANSWER_Dillan2
 	$saying Laura
 	We started a few years ago. Frankly these parties have gotten a bit bigger than I think either of us really expected.
 	$set DillanParties True
@@ -167,14 +167,14 @@ $case DillanParties = True & DillanWhat = True
 	I'm really sorry, I have to go make a call.
 	$goto BLOG
 $case SamuelFalling = True & SamuelShould = True
-	$no show Dillon
+	$no show Dillan
 	$show Laura 0.5
 	$saying Laura
 	Oh, Dillan just walked away. That's a shame, he seemed nice.
 	$goto BLOG
 $end
 
-$saying Dillon
+$saying Dillan
 $phone Samuel: You work in a newspaper. That industry is practically dying....
 It must be a lot of work setting up and all...
 
@@ -190,10 +190,10 @@ $end
 $saying Dillan
 $phone Samuel: ... how do you deal with the stress?
 ... do you want some help?
-\ANSWER_DILLON3 Answer Dillan
+\ANSWER_Dillan3 Answer Dillan
 \ANSWER_SAMUEL3 Answer Samuel
 
-:ANSWER_DILLON3
+:ANSWER_Dillan3
 	$saying Laura
 	That would be wonderful. We could always use a bit more help, and that would help us cope with the growing size of these parties.
 	$saying Dillan
@@ -224,7 +224,7 @@ $case DillanParties = True & DillanHelp = True
 	[Dang it. Samuel went off line, I better go actually talk to him.]
 	I'm really sorry Dillan, I have to go make a call.
 $case SamuelFalling = True & SamuelDeal = True
-	$no show Dillon
+	$no show Dillan
 	$show Laura 0.5
 	$saying Laura
 	Oh, Dillan just walked away. That's a shame, he seemed nice.
@@ -235,14 +235,14 @@ $set Texting True
 $no show Laura
 $no phone
 $no saying
-$show Dillon 0.6
+$show Dillan 0.6
 You assess the other party goers to see who else might be a good target for socialization.
 You're kinda shy, and you can see another person standing alone off to the side. This looks like an easy ally. Introverts unite!
-$no show Dillon
+$no show Dillan
 $show Royce 0.4
 The gentleman is tall, wears a nice turtle neck and a beany and is currently reading, you look at the title, Ulysses. Uhhh, it'll be fine.
 
-$show Dillon 0.8
+$show Dillan 0.8
 $show Royce 0.2
 
 $saying Dillan
@@ -368,12 +368,12 @@ $goto END_OF_GAME
 :SOCIALITE
 $no saying
 $no phone
-$no show Dillon
+$no show Dillan
 $background Cafe
 
 Going to a meetup seems like a reasonable thing to do. It's a big city, but you can get trapped in this cycle of staying home all the time and talking to no one if you don't reach out every so often.
 You head over to the AllCorp FaceSpace Meetup. It's being held in a nice coffee shop a few minutes away.
-$show Dillon 0.5
+$show Dillan 0.5
 A lot of people are here, this is cool.
 	\OBSERVE_CROWD Take a moment and observe the crowd.
 	\TALK_TO_SOMEONE Seek out someone to talk to.
@@ -381,12 +381,12 @@ A lot of people are here, this is cool.
 :OBSERVE_CROWD
 	There are definitely some people here who know each other already. Of course, that's not a problem. It's not like friendliness is a precious resource.
 	After a couple minutes standing by observing the crowd, a guy in a polo and khaki shorts starts walking in your direction.
-	$show Dillon 0.8
+	$show Dillan 0.8
 	$show Cliff 0.4
 	$saying Cliff
 	Hi, I don't know you. Come talk to some people.
 	$no saying
-	$show Dillon 0.2
+	$show Dillan 0.2
 	$show Cliff 0.6
 	I follow him to a small group who are chatting amongst themselves.
 	$saying Cliff
@@ -394,7 +394,7 @@ A lot of people are here, this is cool.
 $goto MEET_CLIFF
 :TALK_TO_SOMEONE
 	It doesn't take to long to find someone who looks amenable to talk to. A man in a polo and khaki shorts is with a group of a few more people. You make your way over there.
-	$show Dillon 0.2
+	$show Dillan 0.2
 	$show Cliff 0.6
 	$saying Cliff
 	Hi, I don't recognize you. Is this your first time at one of the local meetups?
@@ -408,11 +408,11 @@ $saying Dillan
 That's cool, who are these people?
 
 $no saying
-$show Dillon -0.5
+$show Dillan -0.5
 $show Cliff -0.5
 You meet the rest of the group in the middle of a joke.
 
-$show Dillon 0.1
+$show Dillan 0.1
 $show Cliff 0.3
 $show Mackenzie 0.8
 $saying Mackenzie
@@ -435,7 +435,7 @@ $$phone Some have compared it to the earlier joke...
 	$saying Dillan
 	OH.
 	
-	$show Dillon 0.3
+	$show Dillan 0.3
 	$show Cliff 0.7
 	$show Mackenzie 0.9
 
@@ -461,7 +461,7 @@ $goto BEHIND_BACK
 	$no phone
 	The group starts laughing again, but it dies down faster this time.
 	
-	$show Dillon 0.3
+	$show Dillan 0.3
 	$show Cliff 0.7
 	$show Mackenzie 0.9
 
@@ -497,7 +497,7 @@ $no saying
 $no show Cliff
 $show Helen 0.5
 $show Mackenzie 0.8
-$show Dillon 0.2
+$show Dillan 0.2
 Cliff walks away to talk to another few people. Mackenzie and Helen wave him away.
 
 $saying Mackenzie
@@ -517,8 +517,94 @@ I have to be honest, he doesn't contribute much.
 
 $saying Mackenzie
 I know, every single day, he's late with his stuff.
+	\HATE_COWORKERS Yeah, I hate my co-workers too
+	\\CHECK_FACESPACE Check Michael's AllCorp Credentials to see if they're right
+
+:HATE_COWORKERS
+	$saying Dillan
+	Oh, yeah, um…they’re the worst.
+
+	$saying Mackenzie
+	I know, right? Michael goes around pretending that he's so great when in reality we're the ones who actually get stuff done.
+
+	$saying Dillan
+	If he took half the time he spent showing off to actually do his work, he’d be halfway to being respected!
+	And another thing about those types. They think they have to micromanage everything! So busy watching others that they don’t have time to focus on their own problems.
+
+	$saying Helen
+	See? He gets it.
+	
+	$no show Helen
+	$no show Mackenzie
+	$show Dillan 0.5
+
+	$no saying
+	This doesn’t feel right. But I’d feel weird if I just broke up the conversation by disagreeing.
+$goto END_OF_SOCIALITE
+
+:CHECK_FACESPACE
+	$no saying
+	$phone Michael Robinson: His co-workers rated him with 3/5 stars. (X)(X)(X)( )( )
+	
+	As we all know, anything except for 5/5 stars is trash. There may be some truth to their claims.
+	On the other hand, co-workers can be petty, so he may be on the wrong side of a office political battle.
+	
+	$no phone
+	$show Helen 0.7
+	$show Mackenzie 0.9
+	$show Dillan 0.4
+	
+	$saying Dillan
+	Can I tell you a story?
+	When I starting working in the tech industry, there was an engineer who was always late. We constantly had to re-teach him things he should've known, and he generally just messed up a lot.
+	Well it turned out this guy was kind of in a rut at the time. I don't mean that he had some traumatic family thing happen or that he was in health trouble.
+	We'll get back to that, but for the moment his issue was really affecting the company. We were failing to get orders in and it becoming a pretty serious situation.
+	Because I had a similar job as his, I ended up shouldering a lot of the work. So I got sick of it. I went to my boss and asked him to deal.
+	My boss then explained to me the long, expensive, laborious, and unhelpful task that would be hiring another engineer.
+	So we worked it out, and things did improve.
+	I mean, unless he's doing something like stealing from the company.
+	
+	$show Helen 0.5
+	$show Mackenzie 0.8
+	$show Dillan 0.2
+
+	$saying Mackenzie
+	Well, he wasn't doing that.
+	I do get what you're saying. It probably is in our best interest to fix this. That doesn't make it any less annoying though.
+
+	$saying Dillan
+	It happens sometimes. But we just gotta grin and bear it.
+
+	$saying Mackenzie
+	You know, that’s a good point...
+$set Behind True
+
+:END_OF_SOCIALITE
+$no show Helen
+$no show Mackenzie
+$no saying
+$no phone
+
+$background Bedroom
+$show Dillan 0.5
+You arrive back home.
+
+Even when your trusty phone assistant decided you messed up, you made friends with your new neighbors, Laura and Ricky.
+
+$case NoSoap = True
+	When Mackenzie, Helen, and Cliff told their No Soap Radio joke, I acted earnestly and we all had a good laugh.
+$case True = True
+	Instead of playing it off with some dignity, I insisted that I got the joke until the very end. Since the others new I had to be lying, it didn't reflect very well on me.
+$end
+
+$case Behind = True
+	When Mackenzie and Helen started ranting about their co-workers, it turned out that there was some truth to the matter. And I used that to play somewhat of a mediating role. 
+$case True = True
+	I made good friends with Mackenzie and Hellen by trash-talking my co-workers with them in confidence. This a common thing for all of us to do right. Get some heat off your chest by ranting among friends. Still, I wonder if this kind of thing is actually productive. Do I lose something by talking poorly of my associates when they aren't around?
+$end
 
 :END_OF_GAME
+
 
 
 

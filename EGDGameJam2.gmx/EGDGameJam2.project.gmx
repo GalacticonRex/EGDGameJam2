@@ -75,7 +75,7 @@
       <sprite>sprites\phone_spr</sprite>
     </sprites>
     <sprites name="Portraits">
-      <sprite>sprites\Dillon</sprite>
+      <sprite>sprites\Dillan</sprite>
       <sprite>sprites\Laura</sprite>
       <sprite>sprites\Cliff</sprite>
       <sprite>sprites\Helen</sprite>

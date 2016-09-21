@@ -1,5 +1,5 @@
 global.portraits = ds_map_create();
-ds_map_add( global.portraits, "Dillon", 0);
+ds_map_add( global.portraits, "Dillan", 0);
 ds_map_add( global.portraits, "Cliff", 1);
 ds_map_add( global.portraits, "Helen", 2);
 ds_map_add( global.portraits, "Laura", 3);
@@ -8,7 +8,7 @@ ds_map_add( global.portraits, "Mackenzie", 5);
 ds_map_add( global.portraits, "Royce", 6);
 ds_map_add( global.portraits, "Samuel", 7);
 
-global.portrait_sprite[0] = Dillon;
+global.portrait_sprite[0] = Dillan;
 global.portrait_sprite[1] = Cliff;
 global.portrait_sprite[2] = Helen;
 global.portrait_sprite[3] = Laura;

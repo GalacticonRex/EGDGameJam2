@@ -563,9 +563,9 @@ $goto END_OF_SOCIALITE
 	
 	$saying Dillan
 	Can I tell you a story?
-	When I starting working in the tech industry, there was an engineer who was always late. We constantly had to re-teach him things he should've known, and he generally just messed up a lot.
+	When I started working in the tech industry, there was an engineer who was always late. We constantly had to re-teach him things he should've known, and he generally just messed up a lot.
 	Well it turned out this guy was kind of in a rut at the time. I don't mean that he had some traumatic family thing happen or that he was in health trouble.
-	We'll get back to that, but for the moment his issue was really affecting the company. We were failing to get orders in and it becoming a pretty serious situation.
+	We'll get back to that, but for the moment his issue was really affecting the company. We were failing to get orders in and it became a pretty serious situation.
 	Because I had a similar job as his, I ended up shouldering a lot of the work. So I got sick of it. I went to my boss and asked him to deal.
 	My boss then explained to me the long, expensive, laborious, and unhelpful task that would be hiring another engineer.
 	So we worked it out, and things did improve.
@@ -601,7 +601,7 @@ Even when your trusty phone assistant decided you messed up, you made friends wi
 $case NoSoap = True
 	When Mackenzie, Helen, and Cliff told their No Soap Radio joke, I acted earnestly and we all had a good laugh.
 $case True = True
-	Instead of playing it off with some dignity, I insisted that I got the joke until the very end. Since the others new I had to be lying, it didn't reflect very well on me.
+	Instead of playing it off with some dignity, I insisted that I got the joke until the very end. Since the others knew I had to be lying, it didn't reflect very well on me.
 $end
 
 $case Behind = True

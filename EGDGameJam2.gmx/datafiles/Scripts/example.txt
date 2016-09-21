@@ -237,7 +237,7 @@ $no phone
 $no saying
 $show Dillon 0.6
 You assess the other party goers to see who else might be a good target for socialization.
-Your kinda shy, and you can see another person standing alone off to the side. This looks like an easy ally. Introverts unite!
+You're kinda shy, and you can see another person standing alone off to the side. This looks like an easy ally. Introverts unite!
 $no show Dillon
 $show Royce 0.4
 The gentleman is tall, wears a nice turtle neck and a beany and is currently reading, you look at the title, Ulysses. Uhhh, it'll be fine.
@@ -269,7 +269,7 @@ Take a look.
 :ASK_ABOUT_IT
 $no saying
 I decide to check out his profile...
-$phone Royce Norton: Local Artisan
+$$phone Royce Norton: Local Artisan
 $$phone Enjoys: Quiet Poetry
 $$phone Personality: Outdoorsy Meditative
 
@@ -341,8 +341,8 @@ $no show Dillan
 $no saying
 $no phone
 
-You arrive back home.
 $background Bedroom
+You arrive back home.
 
 $show Dillan 0.5
 

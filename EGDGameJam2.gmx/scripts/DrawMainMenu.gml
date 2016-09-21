@@ -15,7 +15,7 @@ if ( global.menu_real_alpha != global.menu_target_alpha ) {
 draw_set_font(global.fontHuge);
 draw_set_colour(c_white);
 draw_set_alpha(global.menu_alpha);
-draw_text(16,16,"This is the game.");
+draw_text(16,16,"AllCorp and You");
 
 draw_set_font(global.fontLarge);
 draw_set_colour(c_black);

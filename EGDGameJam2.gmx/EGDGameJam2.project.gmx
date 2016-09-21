@@ -51,6 +51,7 @@
     <sounds name="Sounds">
       <sound>sound\Beep</sound>
       <sound>sound\Click</sound>
+      <sound>sound\Magic</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -77,7 +78,9 @@
       <sprite>sprites\LivingRoom</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background1</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\InterpretStatement.gml</script>
@@ -128,10 +131,12 @@
   <objects name="objects">
     <object>objects\GameInterface</object>
     <object>objects\MenuInterface</object>
+    <object>objects\EndInterface</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\MainMenu</room>
     <room>rooms\GameRoom</room>
+    <room>rooms\CurtainCall</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

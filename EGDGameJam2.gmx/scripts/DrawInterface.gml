@@ -1,7 +1,7 @@
 if( global.return_to_main_menu ) {
     global.game_alpha -= 0.05;
     if( global.game_alpha <= 0 )
-        room_goto_previous();
+        room_goto_next();
 }
 else {
     global.game_alpha += (1-global.game_alpha) / 20;

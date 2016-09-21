@@ -1,3 +1,4 @@
+audio_play_sound(Magic, 1, false);
 global.help_tag_time = 0;
 global.help_tag = "Press [SPACEBAR] to proceed...";
 global.return_to_main_menu = false;

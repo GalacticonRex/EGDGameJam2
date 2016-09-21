@@ -634,7 +634,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="9">
+    <constants number="13">
       <constant name="MENTAL_OPTION">0</constant>
       <constant name="MENTAL_OPTION_HALF">1</constant>
       <constant name="PHONE_OPTION">2</constant>
@@ -644,6 +644,10 @@
       <constant name="TEXT_WINDOW">240</constant>
       <constant name="OPTION_WINDOW">190</constant>
       <constant name="BLOCK_SIZE">20</constant>
+      <constant name="BUTTON_CLICKED">3</constant>
+      <constant name="BUTTON_ABOUT_TO_CLICK">2</constant>
+      <constant name="BUTTON_HOVER">1</constant>
+      <constant name="BUTTON_NONE">0</constant>
     </constants>
   </ConfigConstants>
 </Config>

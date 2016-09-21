@@ -9,6 +9,6 @@ for( var i=0;i<len;i+=1 ) {
     if( alpha != 0 ) {
         var sprite = global.portrait_sprite[i];
         var position = global.portrait_position[i];
-        draw_sprite_ext(sprite, 0, room_width * position, room_height, 1,1, 0, c_white, alpha);
+        draw_sprite_ext(sprite, 0, room_width * position, room_height, 1,1, 0, c_white, alpha*global.game_alpha);
     }
 }

@@ -1,8 +1,11 @@
+global.help_tag = "";
+
 global.in_game_menu = false;
 
 var script_url = working_directory+"\Scripts\example.txt";
 var file = file_text_open_read(script_url);
 
+global.game_alpha = 0;
 global.in_case_statement = false;
 global.variables = ds_map_create();
 

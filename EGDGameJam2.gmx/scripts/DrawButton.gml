@@ -3,6 +3,7 @@ var y1 = argument1;
 var x2 = argument2;
 var y2 = argument3;
 var txt = argument4;
+var active = argument5;
 
 var moused = (mouse_x>=x1 and mouse_x<x2 and mouse_y>=y1 and mouse_y<y2);
 
@@ -23,4 +24,14 @@ var spanx = string_width(txt);
 var spany = string_height(txt);
 draw_text((x2-spanx+x1)/2,(y2-spany+y1)/2,txt);
 
-return ( moused and mouse_check_button_released(mb_left) );
+if ( moused ) {
+    if ( active and mouse_check_button_released(mb_left) ) {
+        return BUTTON_CLICKED;
+    } else if ( active and mouse_check_button(mb_left) ) {
+        return BUTTON_ABOUT_TO_CLICK;
+    } else {
+        return BUTTON_HOVER;
+    }
+} else {
+    return BUTTON_NONE;
+}

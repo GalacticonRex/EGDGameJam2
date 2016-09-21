@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="2" name="datafiles">
-    <datafiles number="2" name="Scripts">
+  <datafiles number="3" name="datafiles">
+    <datafiles number="3" name="Scripts">
       <datafile>
         <name>example.txt</name>
         <exists>-1</exists>
@@ -38,6 +38,25 @@
           </Config>
         </ConfigOptions>
         <filename>text.txt</filename>
+      </datafile>
+    </datafiles>
+    <datafiles number="3" name="Fonts">
+      <datafile>
+        <name>galvaniz.ttf</name>
+        <exists>-1</exists>
+        <size>82624</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>galvaniz.ttf</filename>
       </datafile>
     </datafiles>
   </datafiles>
@@ -88,6 +107,9 @@
       <script>scripts\DrawTextbox.gml</script>
       <script>scripts\DrawPortraits.gml</script>
     </scripts>
+    <script>scripts\LoadResources.gml</script>
+    <script>scripts\InitMenu.gml</script>
+    <script>scripts\DrawTagHelp.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\GameFont</font>

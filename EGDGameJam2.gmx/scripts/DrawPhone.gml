@@ -11,12 +11,12 @@ var y1 = y0 + sprite_get_height(chat_bubble)-MARGIN*2;
 
 if ( mouse_x >= x0 and mouse_x < x1 and mouse_y >= y0 and mouse_y < y1 ) {
     if( mouse_check_button(mb_left) or mouse_check_button_released(mb_left) )
-        draw_sprite_ext(chat_bubble_hightlight, 0, boxx, boxy,1.05,1.05,0,c_white,1);
+        draw_sprite_ext(chat_bubble_hightlight, 0, boxx, boxy,1.05,1.05,0,c_white,global.game_alpha);
     else
-        draw_sprite_ext(chat_bubble, 0, boxx, boxy,1.05,1.05,0,c_white,1);
+        draw_sprite_ext(chat_bubble, 0, boxx, boxy,1.05,1.05,0,c_white,global.game_alpha);
     ret = mouse_check_button_released(mb_left);
 } else {
-    draw_sprite_ext(chat_bubble, 0, boxx, boxy,1,1,0,c_white,1);
+    draw_sprite_ext(chat_bubble, 0, boxx, boxy,1,1,0,c_white,global.game_alpha);
 }
 
 draw_set_colour(c_white);

@@ -1,6 +1,6 @@
 Welcome to the game!
 
-$saying Character
+$saying Dillon
 $show Dillon 0.9
 What do I want for lunch?
 	\\LAB0 Pizza
@@ -30,7 +30,7 @@ $goto LABEND
 $goto LABEND
 
 :LABEND
-	$saying Character
+	$saying Dillon
 	Overall I think I made the right choice for lunch.
 
 $show Dillon 0.2
@@ -60,7 +60,7 @@ $goto FINAL
 
 :FINAL
 	$show Dillon 0.5
-	$saying Character
+	$saying Dillon
 	And that was the end of my day. Time for sleep...
 	
 $case healthy = True & work_done = True

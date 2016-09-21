@@ -6,16 +6,19 @@ var do_something = argument3;
 var retvalue = -1;
 
 if( string_length(global.narrator) != 0 ) {
+    var x1 = BORDER*3;
+    var x2 = room_width / 2 - BORDER*3;
     var y1 = room_height-TEXT_WINDOW-(BLOCK_SIZE+MARGIN*2);
     var y2 = room_height-TEXT_WINDOW - 8;
-    DrawTextbox(BORDER*3, y1, room_width / 2 - BORDER*3, y2, personBox);
+    DrawTextbox(x1, y1, x2, y2, personBox);
     
     draw_set_colour(c_navy);
-    draw_set_alpha(1);
-    draw_set_font(NarratorFont);
+    draw_set_alpha(global.game_alpha);
+    draw_set_font(global.fontLarge);
+    var w = string_width(global.narrator);
     var h = string_height(global.narrator);
-    draw_text(BORDER*3 + MARGIN, (y1-h+y2)/2, global.narrator);
-    draw_set_font(GameFont);
+    draw_text((x1-w+x2)/2, (y1-h+y2)/2, global.narrator);
+    draw_set_font(global.fontSmall);
 }
 
 if ( count == 0 ) {
@@ -25,8 +28,8 @@ if ( count == 0 ) {
     DrawTextbox(BORDER, y1, room_width-BORDER, y2, textBox);
     
     draw_set_colour(c_navy);    
-    draw_set_alpha(1);
-    var h = max(string_height(text), TEXT_WINDOW/2);
+    draw_set_alpha(global.game_alpha);
+    var h = max(string_height(text), TEXT_WINDOW * 0.75);
     draw_text_ext(32, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-16-MARGIN*2);
 
 } else {
@@ -48,7 +51,7 @@ if ( count == 0 ) {
     }
     
     draw_set_colour(c_navy);
-    draw_set_alpha(1);
+    draw_set_alpha(global.game_alpha);
     var h = string_height(text);
     draw_text_ext(32, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-16-MARGIN*2);
     

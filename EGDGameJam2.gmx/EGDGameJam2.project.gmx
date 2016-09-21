@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="3" name="datafiles">
-    <datafiles number="3" name="Scripts">
+  <datafiles number="4" name="datafiles">
+    <datafiles number="4" name="Scripts">
       <datafile>
         <name>script.txt</name>
         <exists>-1</exists>
@@ -23,7 +23,7 @@
         <filename>script.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="3" name="Fonts">
+    <datafiles number="4" name="Fonts">
       <datafile>
         <name>galvaniz.ttf</name>
         <exists>-1</exists>

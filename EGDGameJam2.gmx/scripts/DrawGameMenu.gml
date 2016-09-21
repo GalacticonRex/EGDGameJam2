@@ -12,6 +12,7 @@ if( resume == BUTTON_CLICKED ) {
 }
 if( quit == BUTTON_CLICKED ) {
 
+    audio_sound_gain(global.current_music, 0, 3000);
     room_goto_previous();
 
 }

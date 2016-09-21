@@ -80,6 +80,9 @@
       <sprite>sprites\Cliff</sprite>
       <sprite>sprites\Helen</sprite>
       <sprite>sprites\Ricky</sprite>
+      <sprite>sprites\Mackenzie</sprite>
+      <sprite>sprites\Royce</sprite>
+      <sprite>sprites\Samuel</sprite>
     </sprites>
     <sprites name="Background">
       <sprite>sprites\Cafe</sprite>

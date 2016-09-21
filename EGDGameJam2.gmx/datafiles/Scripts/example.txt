@@ -1,87 +1,396 @@
+:START
+
 $music Default
-Welcome to the game!
-
 $background Bedroom
-$saying Dillon
-$show Dillon 0.9
-What do I want for lunch?
-	\\LAB0 Pizza
-	\LAB1 Burrito
-	\LAB2 Salad
+$no saying
 
-:LAB0
-	$no show Dillon
-	$no saying
-	The pizza was very good. However...
-	You got heartburn.
-$goto LABEND
+$saying Debug Assist
+Would you like to start from the beginning?
+\BEGINNING Yes.
+\\BLOG No.
 
-:LAB1
-	$no show Dillon
-	$no saying
-	The burrito was very refreshing. However...
-	You now have lots and lots of gas.
-$goto LABEND
+:BEGINNING
+$no saying
 
-:LAB2
-	$set healthy True
-	$no show Dillon
-	$no saying
-	The salad was... mediocre. However...
-	Although your health is unchanged you feel as though you're drastically improving your lifestyle!
-$goto LABEND
+Ding! My phone is beeping.
 
-:LABEND
-	$background LivingRoom
-	$saying Dillon
-	Overall I think I made the right choice for lunch.
+$show Dillon 0.5
+$$phone AllCorp has scheduled a meet-up with people from your surrounding area. Drop by and say hi :)
+What do you do?
+	\FRIEND_POINTS I'll find my own way thanks.
+	\\SOCIALITE Go meet up!
+	
+:FRIEND_POINTS
+$no show Dillon
+$background LivingRoom
+I go over to Ricky and Laura's house, where they are apparently hosting a party in the neighborhood.
+Walking in, there's a bunch of people here. That's cool. Ricky introduces me to his wife, Laura.
 
+$show Laura 0.9
+$show Ricky 0.6
 $show Dillon 0.2
-What should I do now?
-	\END0 Homework
-	\END1 Video Games
-	\\END2 Spend money at your local AllCorp Department Store
 
-:END0
-	$no show Dillon
-	$no saying
-	$set work_done True
-	You had no time for video games. You are now stressed.
-$goto FINAL
+$saying Laura
+So what do you do, Dillon?
 
-:END1
-	$no show Dillon
-	$no saying
-	Your homework didn't get done. You are now stressed.
-$goto FINAL
+$saying Dillon
+What should I say?
+	\FRIEND_POINTS_CONT I calibrate encabulators in support of other energy generation occupations.
+	\FRIEND_POINTS_CONT I'm an engineer in integral risk assessment.
+	
+:FRIEND_POINTS_CONT
 
-:END2
-	$no show Dillon
-	$no saying
-	You are now poor.
-$goto FINAL
+$no show Ricky
+$show Laura 0.7
+$show Dillon 0.3
 
-:FINAL
-	$background Cafe
-	$show Dillon 0.5
-	$show Cliff 0.0
-	$show Helen 0.7
-	$show Ricky 0.3
-	$show Laura 1.0
-	$saying Dillon
-	And that was the end of my day. Time for sleep...
+$saying Laura
+I have no idea what that means.
+
+$saying Dillon
+I find that happens a lot.
+
+$$phone You have lost 15 Friend Points for being condescending.
+
+$saying Dillon
+That wasn't my intent.
+	\\FRIEND_POINTS_CONT2 Attempt to appeal.
+	\TEXTING Say nothing.
 	
-$case healthy = True & work_done = True
-	I feel pretty good. I was productive today.
-	
-$case healthy = True
-	At least I feel good from my salad at lunch.
-	
-$case work_done = True
-	At least I got my homework done.
-	
+:FRIEND_POINTS_CONT2
+
+$saying Laura
+Oh I didn't think that. Maybe I can tell it it was wrong.
+
+$$phone The official AllCorp Appeals process allows anyone to repeal a friendship judgement.
+
+$saying Dillon
+Cool, let's repeal this stupid thing.
+In order to repeal the judgement, hit this button to send an repeal request.
+
+$$no phone
+
+$no saying
+I hit the button.
+
+$saying Dillon
+Please have the other subject print out the form and send it to AllCorp Headquarters.
+You must be kidding me.
+
+$saying Laura
+That's ridiculous, but I'll do it.
+
+$saying Dillon
+Don't bother, it's not worth the effort.
+
+$saying Laura
+Well, anyway, I won't hold it against you.
+
+$saying Dillon
+Well, thank you.
+
+$set AppealFlag True
+
+:TEXTING
+$no show Dillon
+$no show Ricky
+$no show Laura
+$no saying
+
+Outside of Ricky's house...
+
+$show Laura 0.7
+$show Dillon 0.3
+
+$saying Dillon
+So, what do you do?
+
+$saying Laura
+[I just got a text?]
+$$phone Samuel: I'm just not sure if I followed the right path coming out here. What if everything just falls apart.]
+[It's Samuel. It seems like he's going through a really hard time]
+\ANSWER_DILLON Answer Dillon.
+\ANSWER_SAMUEL Answer Samuel.
+
+:ANSWER_DILLON
+	$saying Laura
+	[Whatever it is it'll have to wait.]
+	$no phone
+	I'm an editor at the city newspaper. Though we don't use much paper anymore. We're mostly a website now.
+	$set DillanWhat True
+$goto TEXTING_CONT
+
+:ANSWER_SAMUEL
+	$saying Laura
+	One sec Dillan, I need to take this...
+	$$phone Laura: You chose to take that risk. You're out there now. Follow through.
+	$$phone Samuel: I just kinda feel like my entire plan here is falling apart. What am I supposed to do now?
+	$set SamuelShould True
+$goto TEXTING_CONT
+
+:TEXTING_CONT
+
+$no saying
+$case DillanWhat = True
+	You left Samuel hanging!
+$case SamuelShould = True
+	Dillan is waiting for you to respond.
 $end
 
-$no show
+$saying Dillan
+$phone Samuel: I'm just not sure if I followed the right path coming out here. What if everything just falls apart.]
+So uhh... Do you guys host parties a lot?
+\ANSWER_DILLON2 Answer Dillon.
+\ANSWER_SAMUEL2 Answer Samuel.
+
+:ANSWER_DILLON2
+	$saying Laura
+	We started a few years ago. Frankly these parties have gotten a bit bigger than I think either of us really expected.
+	$set DillanParties True
+$goto TEXTING_CONT2
+
+:ANSWER_SAMUEL2
+	$phone Laura: Because you have a lot riding on the success of your start-up. But that's fine. You're going to pull through.
+	So uhh... Do you guys host parties a lot?
+	$$phone Samuel: I guess, and you're probably right, but I don't feel any better about this.
+	$$phone Laura: Maybe there's something I don't know, or maybe you're letting the stress get to you.
+	$$phone Laura: You can get better at that you know. Managing stress : )
+	$$phone Samual: Right.
+	$set SamuelFalling True
+$goto TEXTING_CONT2
+
+:TEXTING_CONT2
+$case DillanParties = True & DillanWhat = True
+	$saying Laura
+	$phone Samuel: [Offline]
+	[Dang it. Samuel went off line, I better go actually talk to him.]
+	I'm really sorry, I have to go make a call.
+	$goto BLOG
+$case SamuelFalling = True & SamuelShould = True
+	$no show Dillon
+	$show Laura 0.5
+	$saying Laura
+	Oh, Dillan just walked away. That's a shame, he seemed nice.
+	$goto BLOG
+$end
+
+$saying Dillon
+$phone Samuel: You work in a newspaper. That industry is practically dying....
+It must be a lot of work setting up and all...
+
+$no phone
+$case DillanParties = True
+	$saying Laura
+	[Samuel is waiting!]
+$case SamuelFalling = True
+	$saying Laura
+	[Dillan is waiting!]
+$end
+
+$saying Dillan
+$phone Samuel: ... how do you deal with the stress?
+... do you want some help?
+\ANSWER_DILLON3 Answer Dillan
+\ANSWER_SAMUEL3 Answer Samuel
+
+:ANSWER_DILLON3
+	$saying Laura
+	That would be wonderful. We could always use a bit more help, and that would help us cope with the growing size of these parties.
+	$saying Dillan
+	Cool, let me know when the next one is and we'll figure something out.
+	$set DillanHelp True
+$goto END_OF_TEXTING
+
+:ANSWER_SAMUEL3
+	$phone Laura: If you're observant enough you'll see everyone you know act life their life is falling apart.
+	$$phone Laura: Sometimes it's justified.
+	... do you want some help?
+	$$phone Laura: And sometimes it isn't. Keeping yourself in good spirits is helped by having an accurate picture of the world.
+	$$phone Laura: I find responsibility helps too.
+	$$phone Laura: If I freak out everytime my newsroom does something bad or there's doubt about the future, 
+	$$phone Laura: so will my employees.
+	$$phone Samuel: What about the things you can't control?
+	$$phone Laura: What about them? If I can't control them, then I can prepare for them.
+	$$phone Laura: And if I can't do that, they're not worth the worry.
+	$$phone Samuel: What if you can prepare for them but just don't?
+	$$phone Laura: Then you should change your mind and prepare for them, or learn to be content with the alternative.
+	$set SamuelDeal True
+	
+:END_OF_TEXTING
+
+$case DillanParties = True & DillanHelp = True
+	$saying Laura
+	$phone Samuel: [Offline]
+	[Dang it. Samuel went off line, I better go actually talk to him.]
+	I'm really sorry Dillan, I have to go make a call.
+$case SamuelFalling = True & SamuelDeal = True
+	$no show Dillon
+	$show Laura 0.5
+	$saying Laura
+	Oh, Dillan just walked away. That's a shame, he seemed nice.
+$end
+$set Texting True
+
+:BLOG
+$no show Laura
+$no phone
 $no saying
-You sleep in late the next day. You are late for school.
+$show Dillon 0.6
+You assess the other party goers to see who else might be a good target for socialization.
+Your kinda shy, and you can see another person standing alone off to the side. This looks like an easy ally. Introverts unite!
+$no show Dillon
+$show Royce 0.4
+The gentleman is tall, wears a nice turtle neck and a beany and is currently reading, you look at the title, Ulysses. Uhhh, it'll be fine.
+
+$show Dillon 0.8
+$show Royce 0.2
+
+$saying Dillan
+It looks like you are reading Ulysses. Is it good?
+
+$saying Royce
+I'm going to be honest, I kind of think reading this was a mistake.
+
+$saying Dillan
+So uhh... what's up?
+
+$saying Royce
+The sky of course, which is coincidentally also the limit of everything I wish to achieve.
+
+$saying Dillan
+Oh... Cool... So what is it you uhh... are achieving...?
+
+$saying Royce
+Oh I've written an extensive and carefully crafted AllCorp FaceSpace profile.
+Take a look.
+\DONT_ASK Ask about something else.
+\\ASK_ABOUT_IT Open FaceSpace Mobile App
+
+:ASK_ABOUT_IT
+$no saying
+I decide to check out his profile...
+$phone Royce Norton: Local Artisan
+$$phone Enjoys: Quiet Poetry
+$$phone Personality: Outdoorsy Meditative
+
+$saying Dillan
+It looks like you like the... outdoors?
+
+$set RoyceProfile True
+
+$saying Royce
+Yep. I like to go on hikes all the time.
+\ASK_ABOUT_HIKING What are good hiking trails around here?
+\\ASK_ABOUT_CODE Occupation: Code Artisan (Ruby on Rails)
+
+:ASK_ABOUT_HIKING
+	$saying Royce
+	Oh there's a ton of great hiking trails. The Wispering Pines trail is nice. 
+	Or if you want a good view I'd go hike up Mt. Ascraeus.
+
+	$saying Dillan
+	Do you ever hike with friends?
+
+	$saying Royce
+	Yeah sometimes, you should come along. We tend to hike in the morning anyway.
+
+	$saying Dillan
+	That's fine. I usually have to wake up early for work anyway.
+
+	$set Hiking True
+$goto END_HOUSE
+
+:ASK_ABOUT_CODE
+	$saying Dillan
+	A code... artisan?
+
+	$saying Royce
+	Yes, I decided I wanted to learn to write apps last month.
+	Since then, I have developed an exceptional talent for writing elegant and clever code.
+
+	$saying Dillan
+	What have you made?
+
+	$saying Royce
+	Well code primarily.
+
+	$saying Dillan
+	Right, but what does it do?
+
+	$saying Royce
+	Strictly speaking, I haven't gotten to that part yet.
+
+	$saying Dillan
+	Ah.
+$goto END_HOUSE
+
+:DONT_ASK
+	$saying Dillan
+	So what do you do?
+	$saying Royce
+	I explore the depth of human experience that results from solitary interactions.
+	$saying Dillan
+	Oh.
+	$set RoyceSolitary True
+	$saying Dillan
+	[I get the impression this guy is not actually very interested in talking.]
+
+:END_HOUSE
+$no show Royce
+$no show Dillan
+$no saying
+$no phone
+
+You arrive back home.
+$background Bedroom
+
+$show Dillan 0.5
+
+$case AppealFlag = True
+	Even when your trusty phone assistant decided you messed up, you made friends with your new neighbors Laura and Ricky.
+$case True = True
+	An early technology related fumble, or your reaction to it, caused you to miss out on friendship with your neighbor, Laura.
+$end
+
+$case DillanHelp = True
+	Even while Laura was trying to talk to someone through her phone, she made time to talk to you and help you make a place in the neighborhood by helping them run their parties.
+$case True = True
+	Laura seemed preoccupied with someone on her phone. She basically ignored you.
+$end
+
+$case Hiking = True
+	You made friend with an unlikely candidate, by earnestly inquiry about their interests.
+$case RoyceProfile = True
+	Royce became uncomfortable when I asked him about his "code artisanship" on his FaceSpace profile.
+$end
+$goto END_OF_GAME
+
+:SOCIALITE
+
+:END_OF_GAME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

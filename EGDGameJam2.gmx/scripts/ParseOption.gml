@@ -17,6 +17,7 @@ if( first == '\' ) {
         var substr = string_copy(option, 2, string_length(option));
         global.option_phone = data;
         global.labeljump_phone = ds_map_find_value(global.script_labels, substr);
+        global.trigger_phone = false;
         show_debug_message("Phone: '"+substr+"' : '" + data + "'");
     } else {
         global.options[global.count] = data;
@@ -31,14 +32,27 @@ else if ( first == ':' or first == '#') {
     ret = ParseOption();
 }
 else if ( first == '$' ) {
+    var pause = false;
+    var second = string_char_at(option, 1);
+    if ( second == '$' ) {
+        option = string_copy(option, 2, string_length(option)-1);
+        pause = true;
+    }
     if( option == 'no' ) {
         if ( data == 'saying' ) {
             global.narrator = '';
             global.script_index += 1;
-            ret = ParseOption();
+            if( !pause ) ret = ParseOption();
         }
         else if ( data == 'music' ) {
             audio_sound_gain(global.current_music, 0, 6000);
+            global.script_index += 1;
+            if( !pause ) ret = ParseOption();
+        }
+        else if ( data == 'phone' ) {
+            global.trigger_phone = false;
+            global.script_index += 1;
+            if( !pause ) ret = ParseOption();
         }
         else {
             var results = string_parse(data);
@@ -55,23 +69,29 @@ else if ( first == '$' ) {
                     }
                 }
                 global.script_index += 1;
-                ret = ParseOption();
+                if( !pause ) ret = ParseOption();
             }
             else if ( results[0] == 'background' ) {
                 SetBackgroundAlpha(-1);
                 global.script_index += 1;
-                ret = ParseOption();
+                if( !pause ) ret = ParseOption();
             }
         }
+    }
+    else if( option == 'phone' ) {
+        global.option_phone = data;
+        global.trigger_phone = true;
+        global.script_index += 1;
+        if( !pause ) ret = ParseOption();
     }
     else if ( option == 'saying' ) {
         global.narrator = data;
         global.script_index += 1;
-        ret = ParseOption();
+        if( !pause ) ret = ParseOption();
     }
     else if( option == 'goto' ) {
         global.script_index = ds_map_find_value(global.script_labels, data);
-        ret = ParseOption();
+        if( !pause ) ret = ParseOption();
     }
     else if ( option == 'set' ) {
         var results = string_parse(data);
@@ -79,7 +99,7 @@ else if ( first == '$' ) {
         var vardata = results[1];
         ds_map_add(global.variables, varname, vardata);
         global.script_index += 1;
-        ret = ParseOption();
+        if( !pause ) ret = ParseOption();
     }
     else if ( option == 'show' ) {
         var results = string_parse(data);
@@ -88,12 +108,17 @@ else if ( first == '$' ) {
         if( string_length(varname) > 0 ) {
             var vardata = real(results[1]);
             var index = ds_map_find_value(global.portraits, varname);
-            global.portrait_alpha[index] = 1;
-            global.portrait_position[index] = vardata;
+            if( global.portrait_alpha[index] == 1 ) {
+                global.portrait_position[index] = vardata;
+            } else {
+                global.portrait_alpha[index] = 1;
+                global.portrait_position[index] = vardata;
+                global.portrait_real_position[index] = vardata;
+            }
             show_debug_message("SHOW @ " + string(vardata));
         }
         global.script_index += 1;
-        ret = ParseOption();
+        if( !pause ) ret = ParseOption();
     }
     else if ( option == 'background' ) {
         var results = string_parse(data);
@@ -104,7 +129,7 @@ else if ( first == '$' ) {
             SetBackgroundAlpha(index)
         }
         global.script_index += 1;
-        ret = ParseOption();
+        if( !pause ) ret = ParseOption();
     }
     else if ( option == 'music' ) {
         var results = string_parse(data);
@@ -121,7 +146,7 @@ else if ( first == '$' ) {
             audio_sound_gain(global.current_music, 0.5, 6000);
         }
         global.script_index += 1;
-        ret = ParseOption();
+        if( !pause ) ret = ParseOption();
     }
     else if ( option == 'case' ) {
         show_debug_message("CASE "+data);
@@ -161,7 +186,6 @@ else {
     global.script_index += 1;
     global.count = 0;
     global.options = 0;
-    global.option_phone = undefined;
     global.labeljump_phone = undefined;
     global.rtext = input;
 }

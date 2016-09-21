@@ -84,11 +84,11 @@ if ( global.go_to_play ) {
         global.menu_target_text = "Can I truly be happy? Or am I destined for a false happiness?"
     }
     if ( quit == BUTTON_CLICKED ) {
-        global.help_tag = "Press [SPACEBAR] to skip";
+        global.help_tag = "";
         global.help_tag_time = 0;
         
         global.menu_target_text = global.monologue_quit[global.monologue_index];
-        global.text_shift_speed = 10;
+        global.text_shift_speed = 20;
         global.go_to_quit = true;
     } else if ( quit == BUTTON_ABOUT_TO_CLICK or quit == BUTTON_HOVER ) {
         global.menu_target_text = "Perhaps it is hopeless after all..."

@@ -30,10 +30,14 @@ if ( count == 0 ) {
     draw_set_colour(c_navy);    
     draw_set_alpha(global.game_alpha);
     var h = max(string_height(text), TEXT_WINDOW * 0.75);
-    draw_text_ext(BORDER+16, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-16-MARGIN*2);
+    if( global.trigger_phone )
+        draw_text_ext(BORDER+16, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-sprite_get_width(phone_spr)-BORDER*2-32);
+    else
+        draw_text_ext(BORDER+16, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-BORDER*2-32);
 
 } else {
-    var phone_available = !is_undefined(global.option_phone);
+    var phone_available = !is_undefined(global.labeljump_phone);
+    show_debug_message("PHONE: " + string(phone_available));
     
     var y1 = room_height - TEXT_WINDOW;
     var y2 = room_height - OPTION_WINDOW - 8;
@@ -41,7 +45,7 @@ if ( count == 0 ) {
     DrawTextbox(BORDER, y1, room_width - BORDER, y2, textBox);
     DrawTextbox(BORDER, room_height-OPTION_WINDOW, room_width - BORDER, room_height - 32, textBox);
     
-    if( !is_undefined(global.option_phone) ) {
+    if( phone_available ) {
         var spanx = room_width - sprite_get_width(phone_spr) - 32;        
         draw_sprite(phone_spr, 0, spanx, room_height - sprite_get_height(phone_spr));
     }
@@ -49,7 +53,10 @@ if ( count == 0 ) {
     draw_set_colour(c_navy);
     draw_set_alpha(global.game_alpha);
     var h = string_height(text);
-    draw_text_ext(BORDER+16, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-16-MARGIN*2);
+    if( global.trigger_phone or phone_available )
+        draw_text_ext(BORDER+16, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-32-sprite_get_width(phone_spr)-BORDER);
+    else
+        draw_text_ext(BORDER+16, (y2-h+y1)/2, text, BLOCK_SIZE, room_width-16-MARGIN*2);
     
     if ( phone_available ) {
         for (var i=0;i<count;i+=1)
@@ -62,5 +69,12 @@ if ( count == 0 ) {
             if( DrawSingleOption(data[i], i, MENTAL_OPTION, do_something) )
                 retvalue = i;
     }
-}    
+}
+
+if( global.trigger_phone ) {
+    var spanx = room_width - sprite_get_width(phone_spr) - 32;        
+    draw_sprite(phone_spr, 0, spanx, room_height - sprite_get_height(phone_spr));
+    DrawPhone( false );
+}
+    
 return retvalue;

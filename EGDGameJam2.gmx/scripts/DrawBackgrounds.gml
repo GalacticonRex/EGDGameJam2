@@ -6,7 +6,6 @@ for( var i=0;i<len;i+=1 ) {
     if ( target == 1 )
         showing = i;
 }
-show_debug_message(string(showing));
 for( var i=0;i<len;i+=1 ) {
     var target = global.background_alphas[i];
     var alpha = global.background_real_alphas[i];

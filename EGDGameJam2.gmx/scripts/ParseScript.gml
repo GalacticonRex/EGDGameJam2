@@ -16,6 +16,7 @@ global.script_labels = ds_map_create();
 global.script_index = 0;
 global.option_phone = undefined;
 global.labeljump_phone = undefined;
+global.trigger_phone = false;
 
 global.script_max_index = 0
 while ( !file_text_eof(file) ) {

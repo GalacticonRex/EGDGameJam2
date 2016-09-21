@@ -34,5 +34,5 @@ global.monologue_play[7] = "I will try.";
 global.monologue_play[8] = "";
 
 global.monologue_quit[0] = "";
-global.monologue_quit[1] = "So long...";
+global.monologue_quit[1] = "SEE YOU SPACE COWBOY...";
 global.monologue_quit[2] = "";
